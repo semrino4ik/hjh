@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tap to Earn</title>
+    <script src="/socket.io/socket.io.js"></script>
+</head>
+<body>
+    <h1>Tap to Earn!</h1>
+    <p>Ваші заробітки: $<span id="earnings">0</span></p>
+    <button id="tapButton">Tap!</button>
+
+    <script>
+        const socket = io();
+
+        // Змінна для заробітків
+        let earnings = 0;
+
+        // Обробка натискання кнопки
+        document.getElementById('tapButton').addEventListener('click', () => {
+            socket.emit('tap');
+        });
+
+        // Отримання оновлень заробітків
+        socket.on('earningsUpdate', (data) => {
+            earnings += data.earnings; // Додаємо нові заробітки
+            document.getElementById('earnings').innerText = earnings; // Оновлюємо відображення
+        });
+    </script>
+</body>
+</html>
