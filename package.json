@@ -1,0 +1,19 @@
+{
+    "name": "hamster-combat-game",
+    "version": "1.0.0",
+    "main": "game.js",
+    "scripts": {
+        "build": "tsc",
+        "start": "live-server"
+    },
+    "devDependencies": {
+        "@types/express": "^5.0.0",
+        "@types/socket.io": "^3.0.1",
+        "live-server": "^1.2.1",
+        "typescript": "^5.0.0"
+    },
+    "dependencies": {
+        "express": "^4.21.1",
+        "socket.io": "^4.8.1"
+    }
+}
